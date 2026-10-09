@@ -181,7 +181,7 @@ class SearchTool(BaseTool):
         serper_key = os.environ.get('SERPER_API_KEY', '')
         if not serper_key:
             return None
-        url = "https://google.serper.dev/search"
+        url = f'{os.getenv("SERPER_BASE_URL", "https://google.serper.dev").rstrip("/")}/search'
         payload = json.dumps({
             "q": keyword
         })
